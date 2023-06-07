@@ -34,9 +34,9 @@ state("BlueCode-Win64-Shipping", "Epic Games 1.5.4.10")
 
 start
 {
-    if (old.GameState == 2 && current.GameState == 0) {
+    if (old.GameState == 0 && current.GameState == 3) {
         return true;
-    } else if (old.GameState == 2 && current.GameState == 9) {
+    } else if (old.GameState == 9 && current.GameState == 3) {
         return true;
     } else {
         return false;
