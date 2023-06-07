@@ -43,6 +43,17 @@ start
     }
 }
 
+split
+{
+    if (old.GameState == 0 && current.GameState == 3) {
+        return true;
+    } else if (old.GameState == 9 && current.GameState == 3) {
+        return true;
+    }else {
+        return false;
+    }
+}
+
 reset
 {
     if (old.GameState == 8 && current.GameState == 2) {
