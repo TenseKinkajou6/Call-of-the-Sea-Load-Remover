@@ -20,6 +20,9 @@ enum class EGameState : uint8_t
     Message        = 10,
     ReadyToPlay    = 11
 };
+
+The only reason this was even remotely possible was due to Ero's extensive help.
+
 */
 
 
