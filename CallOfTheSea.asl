@@ -40,17 +40,17 @@ The only reason this was even remotely possible was due to Ero's extensive help.
 state("BlueCode-Win64-Shipping", "Epic 1.5.4.10")
 {
     int GameState: 0x4AA0C30, 0x118, 0x348;
-    int level: 0x4AA0C30, 0x180, 0x8A2;
+    int levelID: 0x4AA0C30, 0x180, 0x8A2;
 }
 state("BlueCode-Win64-Shipping", "Steam 1.5.3.0")
 {
     int GameState: 0x4913EB0, 0x118, 0x348;
-    int level: 0x4913EB0, 0x180, 0x88A;
+    int levelID: 0x4913EB0, 0x180, 0x88A;
 }
 
 start
 {
-    if ((old.GameState == 9 || old.GameState == 0) && current.GameState == 3 && current.level == 2) {
+    if ((old.GameState == 9 || old.GameState == 0) && current.GameState == 3 && current.levelID == 2) {
         return true;
     }
     return false;
@@ -58,16 +58,14 @@ start
 
 split
 {
-    return old.level != current.level;
+    if (current.levelID == (old.levelID + 1)) {
+        return true;
+    }
 }
 
 reset
 {
-    if (old.GameState == 8 && current.GameState == 2) {
-        return true;
-    } else {
-        return false;
-    }
+    return (old.GameState == 8 && current.GameState == 2);
 }
 
 isLoading
