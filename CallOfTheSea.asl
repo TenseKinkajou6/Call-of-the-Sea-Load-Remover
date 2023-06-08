@@ -58,10 +58,7 @@ start
 
 split
 {
-    if ((old.GameState == 0 && current.GameState == 3) || (old.GameState == 9 && current.GameState == 3)) {
-        return (old.level != current.level);
-    }
-    return false;
+    return old.level != current.level;
 }
 
 reset
